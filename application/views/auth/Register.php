@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         * {
             margin: 0;
@@ -26,27 +25,24 @@
             background-position: center;
         }
 
-       .wrapper {
-            width: 420px;
+        .wrapper {
+            width: 450px;
             background: slateblue;
-            border: 2px solid rgba(255, 255, 255, .2);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
             color: #fff;
             border-radius: 10px;
-            padding: 30px 40px;
-       }
+            padding: 20px 40px;
+        }
 
         .wrapper h1 {
-            font-size: 36px;
+            font-size: 20px;
             text-align: center;
         }
 
         .wrapper .input-box {
             position: relative;
             width: 100%;
-            height: 50%;
-            margin: 30px 0;
+            height: 40%;
+            margin: 20px 0;
         }
 
         .input-box input {
@@ -66,21 +62,6 @@
             color: #fff;
         }
 
-        .input-box i {
-            position: absolute;
-            right: 20px;
-            top: 60%;
-            transform: translateY(-50%);
-            font-size: 20px;
-        }
-
-        .wrapper .remember-forgot {
-           display: flex;
-           justify-content: space-between;
-           font-size: 14.5px;
-           margin: -15px 0 15px;
-       }
-
         .remember-forgot label input {
             accent-color: #fff;
             margin-right: 3px;
@@ -97,14 +78,14 @@
 
         .wrapper .btn {
             width: 100%;
-            height: 35px;
+            height: 30px;
             background: #fff;
             border: none;
             outline: none;
             border-radius: 40px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 1);
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             color: #333;
             font-weight: 600;
         }
@@ -112,7 +93,7 @@
         .wrapper .register-link {
             font-size: 14.5px;
             text-align: center;
-            margin: 20px 0 15px;
+            margin-top: 20px 0 10px;
         }
 
         .register-link p a {
@@ -130,33 +111,34 @@
 <body>
 
     <div class="wrapper">
-        <form action="">
-            <h1>Login</h1>
+        <form action="" >
+            <h1>Register karyawan</h1>
             <div class="input-box">
-                <label for="email">email</label>
-                <input type="text" id="email" placeholder="email" required>
-                <i class='bx bxs-user'></i>
+                <input type="text" placeholder="nama" required>
             </div>
             <div class="input-box">
-                <label for="">password</label>
+                <input type="email" placeholder="email" required>
+            </div>
+            <div class="input-box">
+                <input type="nama_depan" placeholder="nama_depan" required>
+            </div>
+            <div class="input-box">
+                <input type="nama_belakang" placeholder="nama_belakang" required>
+            </div>
+            <div class="input-box">
                 <input type="password" placeholder="password" required>
-                <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="input-box">
-            <label for="">role</label>
                 <input type="role" placeholder="role" required>
             </div>
-            <div class="remember-forgot">
-                 <label><input type="checkbox"> Remember me</label>
+            <button type="submit" class="btn">Register</button>
+
+            <div class="Login_link">
+                <p>sudah punya akun?<a href="login" style=color:white> Login</a></p>
             </div>
-
-            <button type="submit" class="btn">Login</button>
-
             <div class="register_link">
-                <p>sudah punya akun?<a href="register" style="color:white"> register</a>
-
-            </div>
-
+                <p>sudah punya akun?<a href="Register_admin" style="color:white"> register admin</a>
+           </div>
 
         </form>
 
