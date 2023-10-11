@@ -20,14 +20,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: slategray;
+            background: skyblue;
             background-size: cover;
             background-position: center;
         }
 
         .wrapper {
             width: 450px;
-            background: slateblue;
+            background: seagreen;
             color: #fff;
             border-radius: 10px;
             padding: 20px 40px;
@@ -109,37 +109,45 @@
 </head>
 
 <body>
-
     <div class="wrapper">
-    <form action="<?php echo base_url(); ?>auth/Aksi_Register_admin" method ="post">
-            <h1>Register admin</h1>
-            <div class="input-box">
-                <input type="text" name="nama" placeholder="nama" required>
-            </div>
-            <div class="input-box">
-                <input type="email" name="email" placeholder="email" required>
-            </div>
-            <div class="input-box">
-                <input type="nama_depan" name="nama_depan"placeholder="nama_depan" required>
-            </div>
-            <div class="input-box">
-                <input type="nama_belakang" name="nama_belakang"placeholder="nama_belakang" required>
-            </div>
-            <div class="input-box">
-                <input type="password" nama="password" placeholder="password" required>
-            </div>
-            <div class="input-box">
-                <input type="role" nama="role" placeholder="role" required>
-            </div>
-            <button type="submit" class="btn">Register</button>
+        <form action="<?php echo base_url('auth/aksi_register_admin'); ?>" method="post"> 
+        <h1>Register admin</h1>
+                <div class="input-box"> 
+                    <label for="username">Username</label> 
+                    <input type="text" id="username" placeholder="Masukkan username" class="form-control" 
+                        name="username" required> 
+                </div> 
+                <div class="input-box"> 
+                    <label for="email">Email</label> 
+                    <input type="email" id="email" placeholder="Masukkan email Anda" class="form-control" name="email" 
+                        required> 
+                </div> 
+                <div class="input-box"> 
+                    <label for="nama_depan">Nama Depan</label> 
+                    <input type="text" id="nama_depan" placeholder="Masukkan nama depan Anda" class="form-control" 
+                        name="nama_depan" required> 
+                </div> 
+                <div class="input-box"> 
+                    <label for="nama_belakang">Nama Belakang</label> 
+                    <input type="text" id="nama_belakang" placeholder="Masukkan nama belakang Anda" class="form-control" 
+                        name="nama_belakang" required> 
+                </div> 
+                <div class="input-box"> 
+                    <label for="password">Password</label> 
+                    <input type="password" id="password" placeholder="Masukkan kata sandi Anda" class="form-control" 
+                        name="password" required> 
+                    <small class="text-danger">Kata sandi minimal harus 8 karakter!</small> 
+                </div> 
+                <div class="input-box"> 
+                    <label for="role">Role</label> 
+                    <input type="role" id="role" placeholder="role" class="form-control" 
+                        name="role" required> 
+                    </select> 
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
 
-            <div class="Login_link">
-                <p>sudah punya akun?<a href="register" style=color:white> registerq</a></p>
-            </div>
-
-        </form>
-
+    
     </div>
 </body>
-
 </html>

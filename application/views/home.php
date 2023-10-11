@@ -1,28 +1,69 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Halaman Beranda Sekolah</title> 
-    <!-- Tambahkan tautan ke file CSS Bootstrap --> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+<!-- application/views/login.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Tambahkan link ke Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
     <style>
-        body{
-            background-image: url('https://foto.data.kemdikbud.go.id/getImage/20328986/7.jpg');
+
+        body {
+            /* background-image: url('https://wallpapercave.com/wp/wp12064884.jpg'); */
             background-size: cover; 
             background-repeat: no-repeat;
             background-attachment: fixed; 
         }
+        .card-title {
+            color: #fff;
+        }
+        .card {
+            background-color: rgba(0, 0, 0, 0.2); 
+            padding: 20px;
+        }
+        .logo {
+            max-width:300px;
+            height: auto; 
+            display: block; 
+            margin: 0 auto 40px; 
+        }
+        .custom-button {
+            font-size: 10px; 
+            width: 150px
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: #fff; 
+        }
+
     </style>
-</head> 
-<body>  
-    <!-- Jumbotron --> 
-    <div class="text-center"> 
-        <img src="https://binusasmg.sch.id/ppdb/logobinusa.png" alt="image" height="200px" widthS="200px" > 
-        <h1>Selamat datang di</h1> 
-        <h3>SMK Bina Nusantara Demak</h3> 
-        <a class="btn btn-primary" href="./auth" role="button">Login</a> 
-        <a class="btn btn-primary" href="./auth/Register" role="button">register</a> 
+</head>
+<body>
+    <div class="min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="">
+                        <div class="container">
+                            <img src="https://binusasmg.sch.id/ppdb/logobinusa.png" alt="Logo" class="mb-4 logo">
+                            <h2 class="card-title text-center text-dark fs-1">Welcome King</h2>
+                            <hr class="text-light">
+                            <div class="d-flex justify-content-center">
+                                <div class="text-center mx-1">
+                                    <a href="<?php echo base_url('auth/register_admin');?>" type="submit" class="btn btn-warning custom-button">Daftar Akun</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <footer class="footer text-center mt-5">
+        <p>&copy; <?php echo date('Y'); ?> SMK Bina Nusantara Demak</p>
+    </footer>
 </body>
-</html> 
+</html>

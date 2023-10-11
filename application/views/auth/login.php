@@ -21,14 +21,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: slategray;
+            background:skyblue ;
             background-size: cover;
             background-position: center;
         }
 
        .wrapper {
             width: 420px;
-            background: slateblue;
+            background: seagreen;
             border: 2px solid rgba(255, 255, 255, .2);
             backdrop-filter: blur(20px);
             box-shadow: 0 0 10px rgba(0, 0, 0, .2);
@@ -130,7 +130,7 @@
 <body>
 
     <div class="wrapper">
-        <form action="">
+        <form action="<?php echo base_url('auth/aksi_login') ?>">
             <h1>Login</h1>
             <div class="input-box">
                 <label for="email">email</label>
@@ -142,24 +142,18 @@
                 <input type="password" placeholder="password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
-            <div class="input-box">
+            <!-- <div class="input-box">
             <label for="">role</label>
                 <input type="role" placeholder="role" required>
-            </div>
-            <div class="remember-forgot">
-                 <label><input type="checkbox"> Remember me</label>
-            </div>
-
+            </div> -->
             <button type="submit" class="btn">Login</button>
 
             <div class="register_link">
-                <p>sudah punya akun?<a href="register" style="color:white"> register</a>
-
-            </div>
-
-
+                    <p>Belum punya akun?<a href='<?php echo base_url('auth/register'); ?>' style=color:white>
+                            register</a>
+                    </p>
+                </div>
         </form>
-
     </div>
 </body>
 
