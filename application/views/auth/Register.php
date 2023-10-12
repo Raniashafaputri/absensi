@@ -112,7 +112,7 @@
 
 <div class="wrapper">
         <form action="<?php echo base_url('auth/aksi_register'); ?>" method="post"> 
-        <h1>Register admin</h1>
+        <h1>Register karyawan</h1>
                 <div class="input-box"> 
                     <label for="username">Username</label> 
                     <input type="text" id="username" placeholder="Masukkan username" class="form-control" 

@@ -345,32 +345,34 @@ body.dark {
                 <li class="item">
                     <div href="#" class="nav_link submenu_item">
                         <span class="navlink_icon">
-                            <i class="bx bx-home-alt"></i>
+                        <i class='bx bxs-home'></i>
                         </span>
                         <span class="navlink">Home</span>
                         <i class="bx bx-chevron-right arrow-left"></i>
                     </div>
 
                     <ul class="menu_items submenu">
-                        <a href="<?php echo base_url(
-                            'employee/dashboard'
-                        ); ?>" class="nav_link sublink">Dashboard</a>
+                        <a href="<?php echo base_url('employee/dashboard');
+                         ?>" class="nav_link sublink">Dashboard</a>
                     </ul>
 
                     <ul class="menu_items submenu">
-                        <a href="<?php echo base_url(
-                            'employee/tambah_absen'
-                        ); ?>" class="nav_link sublink">Absensi</a>
+                        <a href="<?php echo base_url( 'employee/tambah_absen');
+                         ?>" class="nav_link sublink">Absensi</a>
                     </ul>
 
                     <ul class="menu_items submenu">
-                        <a href="<?php echo base_url(
-                            'employee/history'
-                        ); ?>" class="nav_link sublink">History</a>
+                        <a href="<?php echo base_url('employee/izin');
+                         ?>" class="nav_link sublink">izin</a>
+                    </ul>
+
+                    <ul class="menu_items submenu">
+                        <a href="<?php echo base_url(  'employee/history');
+                         ?>" class="nav_link sublink">History</a>
                     </ul>
                 </li>
-                <!-- Sidebar Open / Close -->
-               <div class="bottom_content">
+<!-- Sidebar Open / Close -->
+<div class="bottom_content">
                     <div class="bottom expand_sidebar">
                         <span> Expand</span>
                         <i class='bx bx-log-in'></i>
@@ -426,6 +428,7 @@ body.dark {
     } else {
         sidebar.classList.remove("close");
     }
+    
     </script>
 </body>
 

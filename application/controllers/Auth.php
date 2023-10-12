@@ -88,8 +88,8 @@ class Auth extends CI_Controller {
             if ($this->session->userdata('role') == 'karyawan') {
                 $this->session->set_flashdata('berhasil_login', 'Selamat datang diaplikasi absensi.');
                 redirect(base_url() . 'karyawan');
-            } elseif ($this->session->userdata('role') == 'admin') {
-				redirect(base_url() . "admin");
+            } elseif ($this->session->userdata('role') == 'karyawan') {
+				redirect(base_url() . "employee/karyawan");
 			} else {
                 $this->session->set_flashdata('gagal_login', 'Silahkan periksa email dan password anda.');
                 redirect(base_url() . 'auth');
