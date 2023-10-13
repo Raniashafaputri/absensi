@@ -19,13 +19,13 @@
 <body>
     <?php $this->load->view('employee/index'); ?>
     <div class="kegiatan mb-3">
-        <form method="post" action="<?= base_url('employee/izin') ?>">
+        <form method="post" action="<?= base_url('employee/simpan_izin') ?>">
             <h3>izin</h3>
             <br>
             <label for="Kegiatan" class="form-label">Kegiatan :</label>
-            <textarea class="form-control" aria-label="With textarea" name="kegiatan"></textarea>>
-            <button type="submit" class="btn btn-warning mt-4">izin</button>
-        </form>
+            <textarea class="form-control" aria-label="With textarea" name="kegiatan"></textarea>
+            <button type="submit" class="btn btn-warning mt-4">Masuk</button>
+       </form>
     </div>
 </body>
 

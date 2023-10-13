@@ -27,7 +27,7 @@
 }
 
 body {
-    background-color: #e7f2fd;
+    background-color: turquoise;
     transition: all 0.5s ease;
 }
 
@@ -343,33 +343,40 @@ body.dark {
             <ul class="menu_items">
                 <div class="menu_title menu_dahsboard"></div>
                 <li class="item">
-                    <div href="#" class="nav_link submenu_item">
+                    <a href="<?php echo base_url('employee/dashboard');?>" class="nav_link submenu">
                         <span class="navlink_icon">
                         <i class='bx bxs-home'></i>
                         </span>
-                        <span class="navlink">Home</span>
-                        <i class="bx bx-chevron-right arrow-left"></i>
-                    </div>
-
-                    <ul class="menu_items submenu">
-                        <a href="<?php echo base_url('employee/dashboard');
-                         ?>" class="nav_link sublink">Dashboard</a>
-                    </ul>
-
-                    <ul class="menu_items submenu">
-                        <a href="<?php echo base_url( 'employee/tambah_absen');
-                         ?>" class="nav_link sublink">Absensi</a>
-                    </ul>
-
-                    <ul class="menu_items submenu">
-                        <a href="<?php echo base_url('employee/izin');
-                         ?>" class="nav_link sublink">izin</a>
-                    </ul>
-
-                    <ul class="menu_items submenu">
-                        <a href="<?php echo base_url(  'employee/history');
-                         ?>" class="nav_link sublink">History</a>
-                    </ul>
+                        <span class="navlink">Dashboard</span>
+                    </a>
+                    <a href="<?php echo base_url('employee/tambah_absen');
+                         ?>" class="nav_link submenu">
+                        <span class="navlink_icon">
+                        <i class='bx bx-calendar'></i>
+                        </span>
+                        <span class="navlink">Absensi</span>
+                    </a>
+                    <a href="<?php echo base_url('employee/izin');
+                         ?>" class="nav_link submenu">
+                        <span class="navlink_icon">
+                        <i class='bx bxs-user-check'></i>
+                        </span>
+                        <span class="navlink">Izin</span>
+                    </a>
+                    <a href="<?php echo base_url('employee/history');
+                         ?>" class="nav_link submenu">
+                        <span class="navlink_icon">
+                        <i class='bx bx-history'></i>
+                        </span>
+                        <span class="navlink">History Absen</span>
+                    </a>
+                    <a href="<?php echo base_url('employee/edit_profil');
+                         ?>" class="nav_link submenu">
+                        <span class="navlink_icon">
+                        <i class='bx bxs-user'></i>
+                        </span>
+                        <span class="navlink">Edit Profile</span>
+                    </a>
                 </li>
 <!-- Sidebar Open / Close -->
 <div class="bottom_content">

@@ -43,6 +43,7 @@
             <td><?php echo $row['date']; ?></td>
             <td><?php echo isset($row['jam_masuk']) ? $row['jam_masuk'] : ''; ?></td>
             <td><?php echo isset($row['jam_pulang']) ? $row['jam_pulang'] : ''; ?></td>
+            <td></td>
  
                 <td>     
                 <td><a href="<?php echo base_url('employee/update_absen/') .
@@ -50,6 +51,7 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a> |
                     <button type="button" class="btn btn-success"><i class="fa-solid fa-trash"></i></button>
+                    <script> 
             </tr>
             <?php $i++; ?>
             <?php endforeach; ?>
