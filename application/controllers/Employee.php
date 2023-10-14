@@ -25,6 +25,10 @@ class Employee extends CI_Controller
     {
         $this->load->view('employee/tambah_absen');
     }
+    public function ubah_absen()
+    {
+        $this->load->view('employee/ubah_absen');
+    }
 
     public function save_absensi()
     {
@@ -41,18 +45,18 @@ class Employee extends CI_Controller
         $this->load->model('Absensi_model');
         $this->Absensi_model->createAbsensi($data);
 
-        redirect('employee/history', 'refresh');
+        redirect('Employee/history');
     }
 
 
     public function izin()
     {
-        $this->load->view('employee/izin');
+        $this->load->view('Employee/izin');
     }
 
-    public function simpan_izin()
+    public function simpan_Izin()
     {
-        $id_karyawan = $this->session->userdata('id');
+        $id = $this->session->userdata('id');
         // Tangkap data yang dikirimkan melalui POST
         $keterangan_izin = $this->input->post('keterangan_izin');
         $tanggal_sekarang = date('Y-m-d'); // Mendapatkan tanggal hari ini
@@ -61,21 +65,21 @@ class Employee extends CI_Controller
         $this->load->model('Izin_model');
     
         // Siapkan data izin yang akan disimpan
-        $data = [
-            'id_karyawan' => 1,
-            'kegiatan' => '-',
-            'status' => 'true',
-            'keterangan_izin' => $this->input->post('keterangan_izin'),
-            'jam_masuk' => '00:00:00', // Mengosongkan jam_masuk
-            'jam_pulang' => '00:00:00', // Mengosongkan jam_pulang
-            'date' => $tanggal_sekarang, // Menyimpan tanggal izin
-        ];
-    
+     $data = [
+    'id_karyawan' => $id,  // Gunakan variabel $id_karyawan yang mengandung ID karyawan yang sedang login
+    'kegiatan' => '-',
+    'status' => 'true',
+    'keterangan_izin' => $this->input->post('keterangan_izin'),
+    'jam_masuk' => '00:00:00', // Mengosongkan jam_masuk
+    'jam_pulang' => '00:00:00', // Mengosongkan jam_pulang
+    'date' => $tanggal_sekarang, // Menyimpan tanggal izin
+    ];
+
         // Panggil model untuk menyimpan data izin
         $this->Izin_model->simpanIzin($data);
     
         // Setelah selesai, Anda bisa mengarahkan pengguna kembali ke halaman "history"
-        redirect('employee/history');
+        redirect('Employee/history');
     }
     
 
@@ -85,6 +89,15 @@ class Employee extends CI_Controller
         $data['absensi'] = $this->Absensi_model->getAbsensi();
         $this->load->view('employee/history', $data);
     }
-  
+    public function hapus($id)
+{
+    $this->m_model->delete('absensi', 'id', $id);
+    $this->session->set_flashdata(
+        'berhasil_menghapus',
+        'Data berhasil dihapus.'
+    );
+    redirect(base_url('employee/history'));
+}
+
 }
 ?>

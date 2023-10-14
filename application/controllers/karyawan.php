@@ -20,4 +20,6 @@ class Karyawan extends CI_Controller
 		
 		$this->load->view('karyawan/index');
 	}
+
 	}
+?>	

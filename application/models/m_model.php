@@ -29,16 +29,12 @@ class M_model extends CI_Model{
         $this->db->update($table, $data, $where); 
         return $this->db->affected_rows(); 
     }
-    
-
 
         public function register_user($data) {
             // Masukkan data ke dalam tabel 'users' dan kembalikan hasilnya
             return $this->db->insert('users', $data);
         }
-    
-    
-    
-
-    
+        
+         
 }
+?>
