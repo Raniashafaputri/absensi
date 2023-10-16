@@ -19,13 +19,16 @@
 <body>
     <?php $this->load->view('employee/index'); ?>
     <div class="kegiatan mb-3">
-        <form method="post" action="<?= base_url('employee/ubah_absen') ?>">
+        <form method="post" action="<?= base_url('employee/aksi_ubah_absensi') ?>">
+        <input type="hidden" name="id" value="<?php echo $absen[0]->id ?>">
             <h3>Ubah</h3>
             <br>
             <label for="Kegiatan" class="form-label">Kegiatan :</label>
-            <textarea class="form-control" aria-label="With textarea" name="kegiatan"></textarea>
-            <button type="submit" class="btn btn-warning mt-4">Ubah </button>
-       </form>
+            <textarea class="form-control" aria-label="With textarea" name="kegiatan">
+                <?php echo $absen['kegiatan']; ?>
+            </textarea>
+            <button type="submit" class="btn btn-warning mt-4">Ubah</button>
+        </form>
     </div>
 </body>
 

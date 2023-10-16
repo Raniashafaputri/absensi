@@ -370,12 +370,12 @@ body.dark {
                         </span>
                         <span class="navlink">History Absen</span>
                     </a>
-                    <a href="<?php echo base_url('employee/edit_profil');
+                    <a href="<?php echo base_url('employee/profile');
                          ?>" class="nav_link submenu">
                         <span class="navlink_icon">
                         <i class='bx bxs-user'></i>
                         </span>
-                        <span class="navlink">Edit Profile</span>
+                        <span class="navlink">Profile</span>
                     </a>
                 </li>
 <!-- Sidebar Open / Close -->
