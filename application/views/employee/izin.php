@@ -19,13 +19,14 @@
 <body>
     <?php $this->load->view('employee/index'); ?>
     <div class="kegiatan mb-3">
-        <form method="post" action="<?= base_url('employee/simpan_Izin') ?>">
-            <h3>izin</h3>
-            <br>
-            <label for="Kegiatan" class="form-label">Kegiatan :</label>
-            <textarea class="form-control" aria-label="With textarea" name="kegiatan"></textarea>
-            <button type="submit" class="btn btn-warning mt-4">Masuk</button>
-       </form>
+    <form action="<?= base_url('employee/aksi_menu_izin'); ?>" method="post">
+                                        <div class="mb-3">
+                                            <label for="keterangan">Keterangan Izin</label>
+                                            <textarea class="form-control" id="keterangan" name="keterangan" rows="4"
+                                                required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ajukan Izin</button>
+                                    </form>
     </div>
 </body>
 

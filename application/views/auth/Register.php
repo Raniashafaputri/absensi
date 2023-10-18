@@ -111,7 +111,7 @@
 <body>
 
 <div class="wrapper">
-        <form action="<?php echo base_url('auth/aksi_register'); ?>" method="post"> 
+        <form action="<?php echo base_url('auth/process_register_karyawan'); ?>" method="post"> 
         <h1>Register karyawan</h1>
                 <div class="input-box"> 
                     <label for="username">Username</label> 
@@ -137,11 +137,16 @@
                     <label for="password">Password</label> 
                     <input type="password" id="password" placeholder="Masukkan kata sandi Anda" class="form-control" 
                         name="password" required> 
-                    <small class="text-danger">Kata sandi minimal harus 8 karakter!</small> 
+                    <!-- <small class="text-danger">Kata sandi minimal harus 8 karakter!</small>  -->
                 </div> 
                
                 <button type="submit" class="btn">Register</button>
             </form>
+        
+            <div class="register_link">
+                <p>sudah punya akun?<a href='<?php echo base_url('auth'); ?>' style=color:black> Login</a>
+                </p>
+            </div>
 
     </div>
 </body>

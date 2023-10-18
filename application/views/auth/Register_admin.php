@@ -110,7 +110,7 @@
 
 <body>
     <div class="wrapper">
-        <form action="<?php echo base_url('auth/aksi_register_admin'); ?>" method="post"> 
+        <form action="<?php echo base_url('auth/process_register_admin'); ?>" method="post"> 
         <h1>Register admin</h1>
                 <div class="input-box"> 
                     <label for="username">Username</label> 
@@ -138,14 +138,13 @@
                         name="password" required> 
                     <small class="text-danger">Kata sandi minimal harus 8 karakter!</small> 
                 </div> 
-                <div class="input-box"> 
-                    <label for="role">Role</label> 
-                    <input type="role" id="role" placeholder="role" class="form-control" 
-                        name="role" required> 
-                    </select> 
-                </div>
                 <button type="submit" class="btn">Register</button>
             </form>
+            
+            <div class="register_link">
+                <p>sudah punya akun?<a href='<?php echo base_url('auth'); ?>' style=color:black> Login</a>
+                </p>
+            </div>
 
     
     </div>

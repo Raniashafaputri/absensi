@@ -33,8 +33,32 @@ class M_model extends CI_Model{
         public function register_user($data) {
             // Masukkan data ke dalam tabel 'users' dan kembalikan hasilnya
             return $this->db->insert('users', $data);
-        }
+        }  
+            // Metode untuk mengupdate data
+            public function update_data($data) {
+                // Lakukan proses pembaruan data di sini
+                $this->db->where('kolom_kunci', $data['nilai_kunci']);
+                $this->db->update('nama_tabel', $data);
+            }
+            public function getDataKaryawan() {
+                // Gantilah 'histori_karyawan' dengan nama tabel histori karyawan Anda.
+                $this->db->select('*');
+                $this->db->from('user');
+                $this->db->where('role', 'karyawan');
+                $query = $this->db->get();
         
+                // Kembalikan data dalam bentuk array.
+                return $query->result();
+            }
+            public function getPerHari($tanggal)
+            {
+                $this->db->select('absensi.*, user.username');
+                $this->db->from('absensi');
+                $this->db->join('user', 'absensi.id_karyawan = user.id', 'left');
+                $this->db->where('date', $tanggal);
+                $query = $this->db->get();
+                return $query->result();
+            }
          
-}
+        }
 ?>

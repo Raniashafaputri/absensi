@@ -130,11 +130,11 @@
 <body>
 
     <div class="wrapper">
-        <form action="<?php echo base_url('auth/aksi_login') ?>">
+        <form action="<?php echo base_url('auth/process_login') ?>" method="post">
             <h1>Login</h1>
             <div class="input-box">
                 <label for="email">email</label>
-                <input type="text" id="email" placeholder="email" name="emai" required>
+                <input type="text" id="email" placeholder="email" name="email" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
@@ -142,18 +142,18 @@
                 <input type="password" placeholder="password" name="password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
-            <!-- <div class="input-box">
-            <label for="">role</label>
-                <input type="role" placeholder="role" required>
-            </div> -->
             <button type="submit" class="btn">Login</button>
-
-            <div class="register_link">
-                    <p>Belum punya akun?<a href='<?php echo base_url('auth/register'); ?>' style=color:white>
-                            register</a>
-                    </p>
-                </div>
         </form>
+  
+            <div class="register_link">
+                <p>sudah punya akun?<a href='<?php echo base_url('auth/register'); ?>' style=color:black> Register</a>
+                </p>
+            </div>
+            <div class="register_link">
+                <p>sudah punya akun?<a href='<?php echo base_url('auth/register_admin'); ?>' style=color:black> Register Admin</a>
+                </p>
+            </div>
+
     </div>
 </body>
 
