@@ -332,9 +332,12 @@ body.dark {
 
         <div class="navbar_content">
             <i class="bi bi-grid"></i>
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
-                alt="" class="profile" />
+            <a href="<?php echo base_url('employee/profil'); ?>">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
+                    alt="" class="profile" />
+            </a>
         </div>
+
     </nav>
 
     <!-- sidebar -->
@@ -349,7 +352,7 @@ body.dark {
                         </span>
                         <span class="navlink">Dashboard</span>
                     </a>
-                    <a href="<?php echo base_url('employee/tambah_absen');
+                    <a href="<?php echo base_url('employee/menu_absen');
                          ?>" class="nav_link submenu">
                         <span class="navlink_icon">
                         <i class='bx bx-calendar'></i>
@@ -378,10 +381,10 @@ body.dark {
                         <span class="navlink">Profile</span>
                     </a>
                 </li>
-<!-- Sidebar Open / Close -->
+<!-- Sidebar Open / Close
 <div class="bottom_content">
                     <div class="bottom expand_sidebar">
-                        <span> Expand</span>
+                        <span> TUTUP</span>
                         <i class='bx bx-log-in'></i>
                     </div>
                     <div class="bottom collapse_sidebar">
@@ -389,7 +392,7 @@ body.dark {
                         <i class='bx bx-log-out'></i>
                     </div>
                 </div>
-        </div>
+        </div> -->
     </nav>
     <!-- JavaScript -->
     <script>

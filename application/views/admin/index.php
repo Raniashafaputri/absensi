@@ -384,7 +384,11 @@ body.dark {
                 </ul>
         </div>
     </nav>
-<!-- Sidebar Open / Close -->
+    </a>
+     <a type="button" onclick="confirmLogout()">
+      <i class="fas fa-sign-out-alt text-danger">LogOut</i>
+     </a>
+<!-- Sidebar Open / Close
 <div class="bottom_content">
                     <div class="bottom expand_sidebar">
                         <span> Expand</span>
@@ -395,7 +399,7 @@ body.dark {
                         <i class='bx bx-log-out'></i>
                     </div>
                 </div>
-        </div>
+        </div> -->
     </nav>
     <!-- JavaScript -->
     <script>

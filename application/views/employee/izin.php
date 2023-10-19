@@ -20,9 +20,9 @@
     <?php $this->load->view('employee/index'); ?>
     <div class="kegiatan mb-3">
     <form action="<?= base_url('employee/aksi_menu_izin'); ?>" method="post">
-                                        <div class="mb-3">
+                                        <div class="mb-4">
                                             <label for="keterangan">Keterangan Izin</label>
-                                            <textarea class="form-control" id="keterangan" name="keterangan" rows="4"
+                                            <textarea class="form-control" id="keterangan" name="keterangan" rows="3"
                                                 required></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Ajukan Izin</button>

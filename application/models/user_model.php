@@ -29,7 +29,10 @@ class user_model extends CI_Model
             return false;
         }
     }
-
+    public function get_by_id($table, $id_column, $id) { 
+        $data = $this->db->where($id_column, $id)->get($table); 
+        return $data; 
+    }
     // Fungsi untuk mendapatkan data pengguna berdasarkan ID
     public function getuserByID($id)
     {
@@ -49,7 +52,9 @@ class user_model extends CI_Model
 
         return $query->row();
     }
-
+    function get_data($table){
+        return $this->db->get($table);
+    }
     // Fungsi untuk mendapatkan data semua karyawan
     public function getAllKaryawan()
     {

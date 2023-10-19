@@ -24,41 +24,34 @@ class Auth extends CI_Controller {
         $this->load->view('auth/register_karyawan');
     }
 
-    public function process_login() {
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|regex_match[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/]');
-        $this->form_validation->set_rules('password', 'Password', 'required|regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/]');
-
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->view('auth/login');
-        } else {
-            $email = $this->input->post('email', true);
-            $password = $this->input->post('password', true);
-            $data = ['email' => $email];
-            $query = $this->m_model->getwhere('user', $data);
-            $result = $query->row_array();
-
-            if (!empty($result) && md5($password) === $result['password']) {
-                $data = [
-                    'logged_in' => TRUE,
-                    'email' => $result['email'],
-                    'username' => $result['username'],
-                    'role' => $result['role'],
-                    'id' => $result['id'],
-                ];
-                $this->session->set_userdata($data);
-                if ($this->session->userdata('role') == 'admin') {
-                    redirect(base_url('admin/index'));
-                } elseif ($this->session->userdata('role') == 'karyawan') {
-                    redirect(base_url('employee/dashboard'));
-                } else {
-                    redirect(base_url('auth'));
-                }
-            } else {
-                // Set pesan kesalahan
-                $data['login_error'] = 'Email atau kata sandi salah';
-                $this->load->view('auth/login', $data);
-            }
-        }
+    public function process_login()
+    {
+     $email = $this->input->post('email', true);
+     $password = $this->input->post('password', true);
+     $data = [ 'email' => $email, ];
+     $query = $this->m_model->getwhere('user', $data);
+     $result = $query->row_array();
+   
+     if (!empty($result) || md5($password) === $result['password']) {
+      $data = [
+       'logged_in' => TRUE,
+       'email' => $result['email'],
+       'username' => $result['username'],
+       'role' => $result['role'],
+       'id' => $result['id'],
+      ];
+      $this->session->set_userdata($data);
+      if ($this->session->userdata('role') == 'admin') {
+       redirect(base_url()."admin");
+      } elseif($this->session->userdata('role') == 'karyawan'){
+       redirect(base_url()."employee") ;
+      }
+    else {
+       redirect(base_url()."auth");
+      }
+     } else {
+      redirect(base_url()."auth");
+     }
     }
 
     public function process_register_karyawan() {
@@ -66,7 +59,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required|regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/]');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('auth/Register_karyawan'); 
+            $this->load->view('auth/register'); 
         } else {
             // Hash the password
             $hashed_password = md5($this->input->post('password'));

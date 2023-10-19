@@ -24,7 +24,7 @@
     table { 
         margin-top: 1rem; 
         margin-left: 17%; 
-        width: 40%; /* Added width to the table */ 
+        width: 20%; /* Added width to the table */ 
     } 
  
     .btn-success { 
@@ -48,7 +48,7 @@
 <?php $this->load->view('admin/index'); ?>
 
     <div class="comtainer-fluid">
-        <div class="col-md-10">
+             <div class="col-md-10">
             <h2>Daftar Karyawan</h2>
             <a href="<?php echo base_url('admin/export_karyawan')?>"><button type="submit"
                                     class="btn btn-success">export</button></a>
@@ -114,8 +114,6 @@
                             <?php endforeach ?>
                     </tbody>
                         </table>
-
-
         </div>
     </div>
     <!-- Tambahkan tag-script Anda di sini, seperti JavaScript yang dibutuhkan -->
