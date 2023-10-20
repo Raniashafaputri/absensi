@@ -109,10 +109,8 @@ hr {
                     <div class="home-content">
                         <div class="card-body text-center">
                         <div class="profile-image">
-                                <img src="<?php echo base_url('images/user/' . $user->image) ?>" alt="profileImg"
-                                    class="rounded-circle">
+                               
 
-                                <input name="id" type="hidden" value="<?php echo $user->id ?>">
                                 <button for="image_upload" class="edit-button" data-bs-toggle="modal"
                                     data-bs-target="#editImageModal"><i class="fa-solid fa-pen"></i></button>
                                 <input type="file" id="image" name="image" accept="image/*" style="display:none;">
@@ -137,7 +135,7 @@ hr {
                                     <p class="mb-0">Username</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?php echo $user->username; ?></p>
+                                  
                                 </div>
                             </div>
                             <hr>
@@ -146,7 +144,7 @@ hr {
                                     <p class="mb-0">Email</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?php echo $user->email; ?></p>
+                                  
                                 </div>
                             </div>
                             <hr>
@@ -155,7 +153,7 @@ hr {
                                     <p class="mb-0">Nama Depan</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?php echo $user->nama_depan; ?></p>
+
                                 </div>
                             </div>
                             <hr>
@@ -164,7 +162,7 @@ hr {
                                     <p class="mb-0">Nama Belakang</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?php echo $user->nama_belakang; ?></p>
+                                  
                                 </div>
                             </div>
                             <hr>
@@ -173,7 +171,7 @@ hr {
                                     <p class="mb-0">Role</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?php echo $user->role; ?> </p>
+    
                                 </div>
                             </div>
                         </div>

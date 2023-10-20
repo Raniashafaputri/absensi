@@ -31,7 +31,7 @@
         }
 
         .card-header {
-            background-color: turquoise;
+            background-color: steelblue;
             color: #fff;
             padding: 30px;
             border-radius: 5px 5px 0 0;
@@ -107,7 +107,7 @@
                                 value="<?php echo isset($_GET['tanggal']) ? $_GET['tanggal'] : ''; ?>">
                             <button type="submit" name="submit" class="btn btn-sm btn-primary"
                                 formaction="<?php echo base_url('admin/export_harian')?>">Export</button>
-                            <button type="submit" class="btn btn-success">Filter</button>
+                            <button type="submit" class="btn btn-success ml-3">Filter</button>
                         </div>
                     </form>
                     <br>

@@ -381,18 +381,29 @@ body.dark {
                         <span class="navlink">Profile</span>
                     </a>
                 </li>
-<!-- Sidebar Open / Close
-<div class="bottom_content">
-                    <div class="bottom expand_sidebar">
-                        <span> TUTUP</span>
-                        <i class='bx bx-log-in'></i>
-                    </div>
-                    <div class="bottom collapse_sidebar">
-                        <span> Log out</span>
-                        <i class='bx bx-log-out'></i>
-                    </div>
-                </div>
-        </div> -->
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                <div> 
+               <!-- Mengganti teks "Keluar" dengan gambar kecil dan transparan --> 
+             <a href="<?php echo base_url('auth')?>" style="color: #fff; text-decoration: none;"> 
+                <img src="https://png.pngtree.com/png-vector/20190505/ourmid/pngtree-vector-logout-icon-png-image_1022628.jpg" 
+                alt="Logout" style="width: 20px; opacity: 0.5; margin-right: 10px;" /> 
+             </a> 
+             Logout
+         </div>
     </nav>
     <!-- JavaScript -->
     <script>

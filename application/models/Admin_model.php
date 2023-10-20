@@ -27,13 +27,16 @@ class Admin_model extends CI_Model {
     }
 
     public function getRekapPerMinggu($start_date, $end_date) {
-        $this->db->select('*');
+        $this->db->select('absensi.*, user.username');
         $this->db->from('absensi');
-        $this->db->where('date >=', $start_date);
-        $this->db->where('date <=', $end_date);
+        $this->db->join('user', 'absensi.id_karyawan = user.id', 'left');
+        $this->db->where('date >', $start_date);
+        $this->db->where('date <', $end_date);
         $query = $this->db->get();
         return $query->result();
     }
+
+
 
     // public function getRekapMingguan() {
     //     $query = $this->db->query("SELECT WEEK(tanggal) as minggu, COUNT(*) as total_absensi FROM absensi GROUP BY minggu");

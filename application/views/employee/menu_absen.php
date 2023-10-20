@@ -26,7 +26,7 @@
                                         </label>
                                         <textarea class="form-control" id="kegiatan" name="kegiatan" rows="3"
                                             required></textarea>
-
+                                    </div>
                                         <button type="submit" class="btn btn-primary">Absen</button>
                                 </form>
                             </div>
