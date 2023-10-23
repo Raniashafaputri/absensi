@@ -10,7 +10,7 @@
 </head>
 <style>
 .kegiatan {
-    margin-left: 30%;
+    margin-left: 20%;
     margin-right: 10px;
     margin-top: 100px;
 }
@@ -22,12 +22,12 @@
     <form action="<?= base_url('employee/aksi_menu_izin'); ?>" method="post">
     <div class="mb-4">
                                         <label for="kegiatan" class="form-label">
-                                            <h4>Keterangan izin</h4>
+                                            <h3>Keterangan izin</h3>
                                         </label>
                                         <textarea class="form-control" id="keterangan izin" name="keterangan izin" rows="3"
                                             required></textarea>
                                     </div>
-                                           <button type="submit" class="btn btn-primary">Ajukan Izin</button>
+                                    <button type="submit" class="btn btn-primary">Ajukan Izin</button>
                                     </form>
     </div>
 </body>

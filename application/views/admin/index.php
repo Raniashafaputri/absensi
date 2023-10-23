@@ -385,6 +385,21 @@ body.dark {
                    <br>
                    <br>
                    <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
         </div>
                       <!-- Mengganti teks "Keluar" dengan gambar kecil dan transparan --> 
                       <a href="<?php echo base_url('auth')?>" style="color: #fff; text-decoration: none;"> 

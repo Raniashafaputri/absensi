@@ -20,14 +20,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: skyblue;
+            background:turquoise;
             background-size: cover;
             background-position: center;
         }
 
         .wrapper {
             width: 450px;
-            background: seagreen;
+            background: teal;
             color: #fff;
             border-radius: 10px;
             padding: 20px 40px;

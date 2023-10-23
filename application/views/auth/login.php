@@ -21,14 +21,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background:skyblue ;
+            background:turquoise ;
             background-size: cover;
             background-position: center;
         }
 
        .wrapper {
             width: 420px;
-            background: seagreen;
+            background: teal;
             border: 2px solid rgba(255, 255, 255, .2);
             backdrop-filter: blur(20px);
             box-shadow: 0 0 10px rgba(0, 0, 0, .2);
@@ -149,11 +149,6 @@
                 <p>sudah punya akun?<a href='<?php echo base_url('auth/register'); ?>' style=color:black> Register</a>
                 </p>
             </div>
-            <div class="register_link">
-                <p>sudah punya akun?<a href='<?php echo base_url('auth/register_admin'); ?>' style=color:black> Register Admin</a>
-                </p>
-            </div>
-
     </div>
 </body>
 

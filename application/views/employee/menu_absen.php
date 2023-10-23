@@ -10,7 +10,7 @@
 </head>
 <style>
 .kegiatan {
-    margin-left: 30%;
+    margin-left: 20%;
     margin-right: 10px;
     margin-top: 100px;
 }

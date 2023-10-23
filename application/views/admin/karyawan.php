@@ -4,121 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="path/to/your/custom.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:  skyblue;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .card-header {
+            background-color: steelblue;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h5 {
+            margin: 0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background-color: steelblue;
+            color: #fff;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .img-account-profile {
+            border-radius: 50%;
+        }
+
+        /* Style tombol Export */
+        .btn-export {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .btn-export:hover {
+            background-color: #45a049;
+        }
+
+        /* Style link navigasi */
+        .nav-link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<style> 
-    h2 { 
-        margin-top: 10%; 
-        margin-left: 20%; 
-    } 
- 
-    .exp { 
-        margin-left: 15%; 
-    } 
- 
-    table { 
-        margin-top: 1rem; 
-        margin-left: 17%; 
-        width: 20%; /* Added width to the table */ 
-    } 
- 
-    .btn-success { 
-        background-color: #28a745; 
-        color: #fff; 
-    } 
- 
-    @media (max-width: 50px) { 
-        h2 { 
-            margin-top: 50px; 
-            margin-left: 10%; 
-        } 
- 
-        table { 
-            margin-left: 5%; 
-        } 
-    } 
-</style>
 
 <body>
-<?php $this->load->view('admin/index'); ?>
-
-    <div class="comtainer-fluid">
-             <div class="col-md-10">
-            <h2>Daftar Karyawan</h2>
-            <a href="<?php echo base_url('admin/export_karyawan')?>"><button type="submit"
-                                    class="btn btn-success">export</button></a>
-   <nav class="sidebar">
-        <div class="menu_content">
-            <ul class="menu_items">
-                <div class="menu_title menu_dahsboard"></div>
-                <li class="item">
-                    <a href="<?php echo base_url('admin');?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bxs-home'></i>
-                        </span>
-                        <span class="navlink">Dashboard</span>
-                    </a>
-                    <a href="<?php echo base_url('admin/karyawan');
-                         ?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bx-calendar'></i>
-                        </span>
-                        <span class="navlink">karyawan</span>
-                    </a>
-                    <a href="<?php echo base_url('admin/rekap_bulanan');
-                         ?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bxs-user-check'></i>
-                        </span>
-                        <span class="navlink">Rekap bulanan</span>
-                    </a>
-                    <a href="<?php echo base_url('admin/Rekap_harian');
-                         ?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bxs-user-check'></i>
-                        </span>
-                        <span class="navlink">Rekap harian</span>
-                    </a>
-                    <a href="<?php echo base_url('admin/rekapPerMinggu');
-                         ?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bxs-user-check'></i>
-                        </span>
-                        <span class="navlink">Rekap mingguan</span>
-                    </a>
-                </li>
+    <?php $this->load->view('admin/index'); ?>
+    <div class="main m-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Daftar Karyawan</h3>
+                    <a href="<?php echo base_url('admin/export_karyawan') ?>" class="btn-export">Export</a>
                 </div>
-                </ul>
-        </div>
-    </nav>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                     </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                        <?php $no=0;foreach($user as $row): $no++?>
-                        <tr>
-                            <td><?php echo $no ?></td>
-                            <td><?php echo $row->username ?></td>
-                            <td><?php echo $row->email ?></td>
-                            <?php endforeach ?>
-                    </tbody>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Nama Depan</th>
+                                    <th scope="col">Nama Belakang</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no=0;foreach($user as $row): if($row->role == 'karyawan') : $no++; ?>
+                                <tr>
+                                    <td><?php echo $no ?></td>
+                                    <td>
+                                        <img class="img-account-profile rounded-circle" width="50px"
+                                            src="<?php echo base_url('assets/images/user/' .$row->image) ?>" alt="">
+                                    </td>
+                                    <td><?php echo $row->username ?></td>
+                                    <td><?php echo $row->email ?></td>
+                                    <td><?php echo $row->nama_depan ?></td>
+                                    <td><?php echo $row->nama_belakang ?></td>
+                                </tr>
+                                <?php endif; endforeach; ?>
+                            </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Tambahkan tag-script Anda di sini, seperti JavaScript yang dibutuhkan -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="path/to/your/custom.js"></script>
 </body>
 
 </html>

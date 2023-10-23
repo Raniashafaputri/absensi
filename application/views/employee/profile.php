@@ -69,7 +69,7 @@ body {
     }
 
     button[type="submit"] span {
-        margin-left: 3px;
+        margin-left: 2px;
     }
 }
 
