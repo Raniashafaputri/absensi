@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color:  skyblue;
+            background-color: skyblue;
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,9 +21,13 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 0px;
+            padding: 0;
             max-width: 1200px;
             width: 100%;
+        }
+
+        .card {
+            margin: 5px;
         }
 
         .card-header {
@@ -37,7 +40,7 @@
             align-items: center;
         }
 
-        .card-header h5 {
+        .card-header h3 {
             margin: 0;
         }
 
@@ -64,7 +67,7 @@
             border-radius: 50%;
         }
 
-        /* Style tombol Export */
+        /* Style export button */
         .btn-export {
             background-color: #4CAF50;
             color: white;
@@ -81,7 +84,7 @@
             background-color: #45a049;
         }
 
-        /* Style link navigasi */
+        /* Style navigation link */
         .nav-link {
             color: #007BFF;
             text-decoration: none;
@@ -92,13 +95,12 @@
         }
     </style>
 </head>
-
 <body>
     <?php $this->load->view('admin/index'); ?>
-    <div class="main m-5">
+    <div class="main">
         <div class="container">
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header">
                     <h3>Daftar Karyawan</h3>
                     <a href="<?php echo base_url('admin/export_karyawan') ?>" class="btn-export">Export</a>
                 </div>
@@ -116,12 +118,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no=0;foreach($user as $row): if($row->role == 'karyawan') : $no++; ?>
+                                <?php $no = 0; foreach ($user as $row): if ($row->role == 'karyawan') : $no++; ?>
                                 <tr>
                                     <td><?php echo $no ?></td>
                                     <td>
                                         <img class="img-account-profile rounded-circle" width="50px"
-                                            src="<?php echo base_url('assets/images/user/' .$row->image) ?>" alt="">
+                                            src="<?php echo base_url('assets/images/user/' . $row->image) ?>" alt="">
                                     </td>
                                     <td><?php echo $row->username ?></td>
                                     <td><?php echo $row->email ?></td>
@@ -137,5 +139,4 @@
         </div>
     </div>
 </body>
-
 </html>

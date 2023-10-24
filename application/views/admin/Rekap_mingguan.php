@@ -73,6 +73,7 @@
                                     <th scope="col">Jam Masuk</th>
                                     <th scope="col">Jam Pulang</th>
                                     <th scope="col">Keterangan</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>

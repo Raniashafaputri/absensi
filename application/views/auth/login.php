@@ -133,12 +133,12 @@
         <form action="<?php echo base_url('auth/process_login') ?>" method="post">
             <h1>Login</h1>
             <div class="input-box">
-                <label for="email">email</label>
+                <label for="email">Email</label>
                 <input type="text" id="email" placeholder="email" name="email" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <label for="">password</label>
+                <label for="">Password</label>
                 <input type="password" placeholder="password" name="password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>

@@ -137,7 +137,7 @@
                     <label for="password">Password</label> 
                     <input type="password" id="password" placeholder="Masukkan kata sandi Anda" class="form-control" 
                         name="password" required> 
-                    <!-- <small class="text-danger">Kata sandi minimal harus 8 karakter!</small>  -->
+                    <small class="text-danger">Kata sandi minimal harus 8 karakter!</small> 
                 </div> 
                
                 <button type="submit" class="btn">Register</button>

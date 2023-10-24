@@ -107,6 +107,7 @@
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Jam Masuk</th>
                                     <th scope="col">Jam Pulang</th>
+                                    <th scope="col">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,7 +121,6 @@
                                     <td><?= $rekap_harian['date']; ?></td>
                                     <td><?= $rekap_harian['jam_masuk']; ?></td>
                                     <td><?= $rekap_harian['jam_pulang']; ?></td>
-
                                 </tr>
                                 <?php endif; ?>
                                 <?php endforeach; ?>

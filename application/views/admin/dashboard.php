@@ -61,7 +61,7 @@
                     <div class="card-body">
                         <i class="fas fa-check fa-4x icon float-end"></i>
                         <h6 class="card-title">Total karyawan</h6>
-                        <h1>50</h1>
+                        <h1>100</h1>
                     </div>
                 </div>
             </div>
@@ -70,10 +70,16 @@
                     <div class="card-body">
                     <i class="fas fa-check fa-4x icon float-end"></i>
                       <h6 class="card-title">Total absen</h6>
-                        <h1>10</h1>
+                        <h1>15</h1>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                    <i class="fas fa-check fa-4x icon float-end"></i>
+                      <h6 class="card-title">Total</h6>
+                        <h1>115</h1>
                 </div>
             </div>
         </div>

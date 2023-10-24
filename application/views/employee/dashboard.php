@@ -78,7 +78,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <i class="fa-solid fa-calculator fa-4x icon float-end"></i>
-                        <h6 class="card-title">Total</h6>
+                        <h6 class="card-title">Total Karyawan</h6>
                         <h1>60</h1>
                     </div>
                 </div>
