@@ -59,6 +59,15 @@ class M_model extends CI_Model{
                 $query = $this->db->get();
                 return $query->result();
             }
+            public function get_karyawan_rows()
+    {
+        return $this->db->get_where('user', ['role' => 'karyawan'])->num_rows();
+    }
+    public function get_absensi_count()
+    {
+        return $this->db->count_all_results('absensi');
+    }
+
          
         }
 ?>

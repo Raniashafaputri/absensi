@@ -17,10 +17,18 @@ class Admin extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index() {
-        // Tampilkan halaman dashboard admin di sini
-        $this->load->view('admin/dashboard');
+    public function index()
+    {
+        $user_id = $this->session->userdata('id');
+        $data['user'] = $this->Admin_model->getuserByID($user_id);
+        $id_admin = $this->session->userdata('id');
+        $data['absen'] = $this->m_model->get_data('absensi')->result();
+        $data['pengguna'] = $this->m_model->get_data('user')->num_rows();
+        $data['karyawan'] = $this->m_model->get_karyawan_rows();
+        $data['absensi_num'] = $this->m_model->get_absensi_count();
+        $this->load->view('admin/dashboard', $data);
     }
+
 
     public function profile(){
         $this->load->view('admin/profile');
@@ -717,6 +725,20 @@ class Admin extends CI_Controller
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
     }
-   
+    public function hapusKaryawan($id)
+    {
+        // Hapus semua catatan terkait dari tabel 'absensi'
+        $this->db->where('id_karyawan', $id);
+        $this->db->delete('absensi');
+
+        // Hapus pengguna dari tabel 'user'
+        $this->db->where('id', $id);
+        $this->db->delete('user');
+
+        // Setelah penghapusan berhasil, Anda dapat mengirim respons sukses atau melakukan pengalihan ke halaman lain.
+        redirect('admin/karyawan'); // Contoh pengalihan ke halaman daftar karyawan
+    }
+
+
 }
 ?>

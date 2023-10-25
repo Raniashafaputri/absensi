@@ -11,7 +11,18 @@ class Admin_model extends CI_Model {
         $this->db->insert('user', $data);
     }
 
-    public function getKaryawan() {
+    public function getuserByID($id)
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
+
+    public function getKaryawan() { 
         $query = $this->db->get('user');
         return $query->result_array();
     }

@@ -1,113 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: turquoise;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .main {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 1700px;
-            width: 50%;
-        }
-
-        .card {
-            border: none;
-        }
-
-        .card-header {
-            background-color: steelblue;
-            color: #fff;
-            padding: 30px;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .card-header h5 {
-            margin: 0;
-        }
-
-        .card-body {
-            padding: 25px;
-        }
-
-        .btn-primary {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-success {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-success:hover {
-            background-color: #1e7e34;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-        }
-
-        th, td {
-            padding: 20px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f0f0f0;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
+<style>
+.table {
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin-top: 80px;
+    margin-right: 10px;
+    padding: 0px;
+    margin-left: 267px;
+}
+
+form {
+    width: 50%;
+    margin-left: 200px;
+}
+
+.exp {
+    margin-top: 8px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+    form {
+        margin-left: 10%;
+    }
+
+    h2 {
+        margin-left: 10%;
+    }
+
+    .table {
+        margin-left: 10%;
+        margin-top: 10px;
+    }
+}
+</style>
 
 <body>
-<?php $this->load->view('admin/index'); ?>
-
-    <div class="main">
-        <div class="container">
+    <?php $this->load->view('admin/index'); ?>
+    <div class="main m-4">
+        <div class="container   ">
             <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <h1>REKAP HARIAN</h1>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5>Rekap Harian</h5>
                 </div>
                 <div class="card-body">
-                    <!-- Filter Tanggal -->
                     <form action="<?= base_url('admin/rekapPerHari'); ?>" method="get">
                         <div class="d-flex justify-content-between">
-                            <input type="date" class="form-control" id="tanggal" name="tanggal"
-                                value="<?php echo isset($_GET['tanggal']) ? $_GET['tanggal'] : ''; ?>">
-                            <button type="submit" name="submit" class="btn btn-sm btn-primary"
+                            <input type="date" class="form-control" id="date" name="date"
+                                value="<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>">
+                            <button type="submit" class="btn btn-success mx-2">Filter</button>
+                            <button type="submit" name="submit" class="btn btn-sm btn-success "
                                 formaction="<?php echo base_url('admin/export_harian')?>">Export</button>
-                            <button type="submit" class="btn btn-success ml-3">Filter</button>
                         </div>
                     </form>
                     <br>
@@ -124,18 +89,25 @@
                                     <th scope="col">Jam Masuk</th>
                                     <th scope="col">Jam Pulang</th>
                                     <th scope="col">Keterangan</th>
-                                    <th scope="col">Hapus</th>
+                                    <td><button type="button" class="btn btn-danger" onclick="hapus(<?php echo $rekap_harian['id']; ?>)"> <i class="fas fa-trash"></i> Hapus
+                                        </button>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no=0;foreach ($perhari as $rekap): $no++ ?>
                                 <tr>
                                     <td><?= $no; ?></td>
-                                    <td><?= $rekap->date; ?></td>
                                     <td><?= $rekap->kegiatan; ?></td>
+                                    <td><?= $rekap->date; ?></td>
                                     <td><?= $rekap->jam_masuk; ?></td>
                                     <td><?= $rekap->jam_pulang; ?></td>
-                                    <td><?= $rekap->keterangan_izin; ?></td>
+                                    <td>
+                                        <?php if(empty($rekap->keterangan_izin) ): ?>
+                                        <span>Masuk</span>
+                                        <?php else: ?>
+                                        <?= $rekap->keterangan_izin; ?>
+                                        <?php endif; ?>
+                                    </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -146,12 +118,30 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                </tbody>
-                </table>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+    <script>
+    function hapus(id) {
+        Swal.fire({
+            title: 'Yakin Di Hapus?',
+            text: "Anda tidak dapat mengembalikannya!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#198754',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?php echo base_url(
+                    'admin/hapusKaryawan/'
+                ); ?>" + id;
+            }
+        });
+    }
+    </script>
+
 </body>
+
 </html>

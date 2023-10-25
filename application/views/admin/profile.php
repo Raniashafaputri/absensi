@@ -12,30 +12,30 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 5;
-    padding: 5;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #eee;
+        margin: 0;
+        padding: 0;
+    }
 
-.container {
-    padding: 50px;
-}
+    .container {
+        padding: 50px;
+    }
 
-.profile-card {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+    .profile-card {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-.profile-image {
+    .profile-image {
         position: relative;
         display: inline-block;
     }
@@ -49,139 +49,105 @@ body {
         margin-bottom: 10px;
     }
 
-.profile-name {
-    font-size: 50px;
-    font-weight: bold;
-}
+    .profile-name {
+        font-size: 24px;
+        font-weight: bold;
+    }
 
-.profile-role {
-    color: #777;
-    margin-bottom: 20px;
-}
+    .profile-role {
+        color: #777;
+        margin-bottom: 20px;
+    }
 
-.profile-actions {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
+    .profile-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
 
-.profile-actions button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
+    .profile-actions button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 
-.btn-warning {
-    background-color: #ffc107;
-    color: #000;
-}
+    .btn-warning {
+        background-color: #ffc107;
+        color: #000;
+    }
 
-.btn-success {
-    background-color: #28a745;
-    color: #fff;
-}
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+    }
 
-.profile-details {
-    text-align: left;
-}
+    .profile-details {
+        text-align: left;
+        margin-top: 20px;
+    }
 
-.profile-details-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
+    .profile-details-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
-hr {
-    border-top: 7.9px solid #ccc;
-}
+    hr {
+        border-top: 1px solid #ccc;
+    }
 </style>
 
-
 <body>
-    <section style="background-color: #eee;">
-        <div class="container py-5">
+    <section>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card mb-4">
-                    <section class="home-section">
-                    <div class="home-content">
-                        <div class="card-body text-center">
+                    <div class="profile-card">
                         <div class="profile-image">
-                               
-
-                                <button for="image_upload" class="edit-button" data-bs-toggle="modal"
-                                    data-bs-target="#editImageModal"><i class="fa-solid fa-pen"></i></button>
-                                <input type="file" id="image" name="image" accept="image/*" style="display:none;">
-                            </div>
-                            <h5 class="card-title">
-                                <?php echo $this->session->userdata('username'); ?>
-                            </h5>
-                            <p class="card-text">
-                                <?php echo $this->session->userdata('email'); ?>
-                            </p>
+                            <img src="your-image-url" alt="Profile Image">
                         </div>
-
+                        <h5 class="profile-name">
+                            <?php echo $this->session->userdata('username'); ?>
+                        </h5>
+                        <p class="profile-role">
+                            <?php echo $this->session->userdata('email'); ?>
+                        </p>
+                        <div class="profile-actions">
+                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-success">Save</button>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-lg-8">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Username</p>
-                                </div>
-                                <div class="col-sm-9">
-                                  
-                                </div>
+                    <div class="profile-card">
+                        <div class="profile-details">
+                            <div class="profile-details-row">
+                                <p>Username</p>
+                                <p><?php echo $this->session->userdata('username'); ?></p>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Email</p>
-                                </div>
-                                <div class="col-sm-9">
-                                  
-                                </div>
+                            <div class="profile-details-row">
+                                <p>Email</p>
+                                <p><?php echo $this->session->userdata('email'); ?></p>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Nama Depan</p>
-                                </div>
-                                <div class="col-sm-9">
-
-                                </div>
+                            <div class="profile-details-row">
+                                <p>Nama Depan</p>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Nama Belakang</p>
-                                </div>
-                                <div class="col-sm-9">
-                                  
-                                </div>
+                            <div class="profile-details-row">
+                                <p>Nama Belakang</p>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Role</p>
-                                </div>
-                                <div class="col-sm-9">
-    
-                                </div>
+                            <div class="profile-details-row">
+                                <p>Role</p>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </section>
 </body>

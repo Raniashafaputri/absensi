@@ -7,32 +7,52 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+.table {
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 30px;
+}
 
-        .main {
-            background-color: turquoise;
-            padding: 200px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: slategray;
+    margin-top: 80px;
+    margin-right: 10px;
+    padding: 0px;
+    margin-left: 130px;
+}
 
-        .card-header {
-            background-color: steelblue;
-            color: #fff;
-        }
+h2 {
+    margin-top: 100px;
+    margin-left: 30px;
+}
 
-        .table-responsive {
-            margin-top: 50px;
-        }
+form {
+    width: 50%;
+    margin-left: 200px;
+}
 
-        th,
-        td {
-            vertical-align: middle;
-        }
-    </style>
+
+.isi {
+    margin-left: 60px;
+}
+
+
+@media (max-width: 768px) {
+    form {
+        margin-left: 10%;
+    }
+
+    h2 {
+        margin-left: 10%;
+    }
+
+    .table {
+        margin-left: 10%;
+        margin-top: 10px;
+    }
+}
+</style>
 </head>
 <body>
 <?php $this->load->view('admin/index'); ?>
@@ -121,6 +141,8 @@
                                     <td><?= $rekap_harian['date']; ?></td>
                                     <td><?= $rekap_harian['jam_masuk']; ?></td>
                                     <td><?= $rekap_harian['jam_pulang']; ?></td>
+                                    <td><button type="button" class="btn btn-danger" onclick="hapus(<?php echo $rekap_harian['id']; ?>)"> <i class="fas fa-trash"></i> Hapus
+                                        </button>
                                 </tr>
                                 <?php endif; ?>
                                 <?php endforeach; ?>
@@ -138,6 +160,27 @@
             </div>
         </div>
     </div>
+    <script>
+    function hapus(id) {
+        Swal.fire({
+            title: 'Yakin Di Hapus?',
+            text: "Anda tidak dapat mengembalikannya!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#198754',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?php echo base_url(
+                    'admin/hapusKaryawan/'
+                ); ?>" + id;
+            }
+        });
+    }
+    </script>
+
 </body>
 
 </html>

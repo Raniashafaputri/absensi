@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/responsive.css'); ?>">
+    <title>Dashboard Admin</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Include your custom CSS here -->
+    <link rel="stylesheet" href="path/to/your/custom.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: skyblue;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            margin: 20px;
+            padding: 10px;
         }
 
         .main {
             background-color: #fff;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 0;
-            max-width: 1200px;
-            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 1000px;
+            width: 1200%;
+            margin: 20px auto;
         }
 
         .card {
-            margin: 5px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
-            background-color: steelblue;
+            background-color: #007BFF;
             color: #fff;
             padding: 10px;
-            border-radius: 5px 5px 0 0;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,7 +60,7 @@
         }
 
         .table thead {
-            background-color: steelblue;
+            background-color: skyblue;
             color: #fff;
         }
 
@@ -67,7 +77,6 @@
             border-radius: 50%;
         }
 
-        /* Style export button */
         .btn-export {
             background-color: #4CAF50;
             color: white;
@@ -83,21 +92,12 @@
         .btn-export:hover {
             background-color: #45a049;
         }
-
-        /* Style navigation link */
-        .nav-link {
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
+
 <body>
     <?php $this->load->view('admin/index'); ?>
-    <div class="main">
+    <!-- <div class="main"> -->
         <div class="container">
             <div class="card">
                 <div class="card-header">
@@ -115,6 +115,8 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Nama Depan</th>
                                     <th scope="col">Nama Belakang</th>
+                                    <th scope="col">Aksi</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -122,17 +124,41 @@
                                 <tr>
                                     <td><?php echo $no ?></td>
                                     <td>
-                                        <img class="img-account-profile rounded-circle" width="50px"
+                                        <img class="img-account-profile" width="50px"
                                             src="<?php echo base_url('assets/images/user/' . $row->image) ?>" alt="">
                                     </td>
                                     <td><?php echo $row->username ?></td>
                                     <td><?php echo $row->email ?></td>
                                     <td><?php echo $row->nama_depan ?></td>
                                     <td><?php echo $row->nama_belakang ?></td>
+                                    <td><button type="button" class="btn btn-danger" onclick="hapus(<?php echo $row->id; ?>)"> <i class="fas fa-trash"></i> Hapus
+                                        </button>
+
                                 </tr>
                                 <?php endif; endforeach; ?>
                             </tbody>
                         </table>
+                        <script>
+    function hapus(id) {
+        Swal.fire({
+            title: 'Yakin Di Hapus?',
+            text: "Anda tidak dapat mengembalikannya!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#198754',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?php echo base_url(
+                    'admin/hapusKaryawan/'
+                ); ?>" + id;
+            }
+        });
+    }
+    </script>
+
                     </div>
                 </div>
             </div>
