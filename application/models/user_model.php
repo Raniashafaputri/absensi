@@ -97,5 +97,18 @@ class user_model extends CI_Model
         $this->db->update($table, $data, $where);
         return $this->db->affected_rows();
     }
+
+    public function getUserData() {
+        $user_id = $this->session->userdata('id');
+        // Gantilah bagian ini sesuai dengan tabel dan kolom yang sesuai di database Anda
+        $query = $this->db->get_where('absensi  ', array('id' => $user_id));
+        
+        if ($query->num_rows() > 0) {
+            return $query->row(); // Mengembalikan data pengguna sebagai objek
+        } else {
+            return null; // Mengembalikan null jika pengguna tidak ditemukan
+        }
+    }
+
 }
 ?>

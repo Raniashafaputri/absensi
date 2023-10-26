@@ -23,7 +23,7 @@ body {
     margin-top: 80px;
     margin-right: 10px;
     padding: 0px;
-    margin-left: 267px;
+    margin-left: 250px;
 }
 
 form {
@@ -66,17 +66,16 @@ form {
                     <h5>Rekap Harian</h5>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url('admin/rekapPerHari'); ?>" method="get">
+                <form action="<?= base_url('admin/rekapPerHari'); ?>" method="get">
                         <div class="d-flex justify-content-between">
-                            <input type="date" class="form-control" id="date" name="date"
-                                value="<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>">
-                            <button type="submit" class="btn btn-success mx-2">Filter</button>
-                            <button type="submit" name="submit" class="btn btn-sm btn-success "
+                            <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                value="<?php echo isset($_GET['tanggal']) ? $_GET['tanggal'] : ''; ?>">
+                            <button type="submit" class="btn btn-success">Filter</button>
+                            <button type="submit" name="submit" class="btn btn-sm btn-primary"
                                 formaction="<?php echo base_url('admin/export_harian')?>">Export</button>
                         </div>
                     </form>
                     <br>
-                    <hr>
                     <br>
                     <div class="table-responsive">
                         <?php if(!empty($perhari)): ?>
@@ -84,30 +83,22 @@ form {
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Kegiatan</th>
                                     <th scope="col">Tanggal</th>
+                                    <th scope="col">Kegiatan</th>
                                     <th scope="col">Jam Masuk</th>
                                     <th scope="col">Jam Pulang</th>
                                     <th scope="col">Keterangan</th>
-                                    <td><button type="button" class="btn btn-danger" onclick="hapus(<?php echo $rekap_harian['id']; ?>)"> <i class="fas fa-trash"></i> Hapus
-                                        </button>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no=0;foreach ($perhari as $rekap): $no++ ?>
                                 <tr>
                                     <td><?= $no; ?></td>
-                                    <td><?= $rekap->kegiatan; ?></td>
                                     <td><?= $rekap->date; ?></td>
+                                    <td><?= $rekap->kegiatan; ?></td>
                                     <td><?= $rekap->jam_masuk; ?></td>
                                     <td><?= $rekap->jam_pulang; ?></td>
-                                    <td>
-                                        <?php if(empty($rekap->keterangan_izin) ): ?>
-                                        <span>Masuk</span>
-                                        <?php else: ?>
-                                        <?= $rekap->keterangan_izin; ?>
-                                        <?php endif; ?>
-                                    </td>
+                                    <td><?= $rekap->keterangan_izin; ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -118,9 +109,12 @@ form {
                         <?php endif; ?>
                     </div>
                 </div>
+                </tbody>
+                </table>
             </div>
-        </div>
-    </div>
+            </div>
+            </div>
+            </div>
     <script>
     function hapus(id) {
         Swal.fire({

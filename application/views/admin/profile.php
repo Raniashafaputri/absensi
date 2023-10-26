@@ -8,148 +8,143 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <style>
+.all {
+    margin-left: 270px;
+}
+
+body {
+    margin-top: 100px;
+}
+
+.iden {
+    width: 60%;
+}
+
+/* Style untuk perangkat seluler */
+@media (max-width: 767px) {
+    .all {
+        margin-left: 1px;
+        margin-top: 30px;
+    }
+
+    .iden {
+        width: 100%;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background-color: #eee;
-        margin: 0;
-        padding: 0;
+        margin-top: 5px;
+        overflow: auto;
+        /* Izinkan discroll */
     }
+}
 
-    .container {
-        padding: 50px;
+/* Style untuk perangkat desktop */
+@media (min-width: 768px) {
+    body {
+        overflow: hidden;
+        /* Larang discroll */
     }
-
-    .profile-card {
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-image {
-        position: relative;
-        display: inline-block;
-    }
-
-    .profile-image img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border: 2px solid #6699ff;
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
-
-    .profile-name {
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    .profile-role {
-        color: #777;
-        margin-bottom: 20px;
-    }
-
-    .profile-actions {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .profile-actions button {
-        padding: 10px 20px;
-        margin: 0 10px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    .btn-warning {
-        background-color: #ffc107;
-        color: #000;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        color: #fff;
-    }
-
-    .profile-details {
-        text-align: left;
-        margin-top: 20px;
-    }
-
-    .profile-details-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    hr {
-        border-top: 1px solid #ccc;
-    }
+}
 </style>
 
 <body>
     <section>
-        <div class="container">
+        <?php $this->load->view('admin/index'); ?>
+        <div class="all container py-5">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="your-image-url" alt="Profile Image">
-                        </div>
-                        <h5 class="profile-name">
-                            <?php echo $this->session->userdata('username'); ?>
-                        </h5>
-                        <p class="profile-role">
-                            <?php echo $this->session->userdata('email'); ?>
-                        </p>
-                        <div class="profile-actions">
-                            <button class="btn btn-warning">Edit</button>
-                            <button class="btn btn-success">Save</button>
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="<?php echo base_url('./images/admin/' . $user->foto ); ?>"
+                             alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3"><?php echo $user->username; ?></h5>
+                            <p class="text-muted mb-4"><?php echo $user->nama_depan .
+                                ' ' .
+                                $user->nama_belakang; ?></p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="<?php echo base_url(
+                                    'employee/akun'
+                                ); ?>" type="button" class="btn btn-warning"><i class="fa-solid fa-wrench"></i></a>
+                                <a href="javascript:void(0);" onclick="confirmLogout();" type="button"
+                                    class="btn btn-danger ms-1"><i class="fa-solid fa-share"></i></a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-lg-8">
-                    <div class="profile-card">
-                        <div class="profile-details">
-                            <div class="profile-details-row">
-                                <p>Username</p>
-                                <p><?php echo $this->session->userdata('username'); ?></p>
+                <div class="iden col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Username</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0"><?php echo $user->username; ?></p>
+                                </div>
                             </div>
                             <hr>
-                            <div class="profile-details-row">
-                                <p>Email</p>
-                                <p><?php echo $this->session->userdata('email'); ?></p>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0"><?php echo $user->email; ?></p>
+                                </div>
                             </div>
                             <hr>
-                            <div class="profile-details-row">
-                                <p>Nama Depan</p>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Nama Depan</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0"><?php echo $user->nama_depan; ?></p>
+                                </div>
                             </div>
                             <hr>
-                            <div class="profile-details-row">
-                                <p>Nama Belakang</p>
-                            </div>
-                            <hr>
-                            <div class="profile-details-row">
-                                <p>Role</p>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Nama Belakang</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0"><?php echo $user->nama_belakang; ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
+        </div>
+        </div>
     </section>
+    <script>
+    // Fungsi untuk menampilkan konfirmasi SweetAlert saat tombol logout ditekan
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Yakin ingin logout?',
+            text: "Anda akan keluar dari akun Anda.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika konfirmasi "Ya", maka alihkan ke logout
+                window.location.href = "<?php echo base_url('auth/logout'); ?>";
+            }
+        });
+    }
+    </script>
 </body>
 
 </html>

@@ -19,6 +19,8 @@
             background-color: skyblue;
             margin: 20px;
             padding: 10px;
+            margin-left:200px;
+            margin-top:80px;
         }
 
         .main {
@@ -64,7 +66,8 @@
             color: #fff;
         }
 
-        .table th, .table td {
+        .table th,
+        .table td {
             padding: 10px;
             text-align: left;
         }
@@ -92,77 +95,64 @@
         .btn-export:hover {
             background-color: #45a049;
         }
+
+        .table-responsive {
+            margin: 0 auto; /* Mengatur margin horizontal untuk tabel */
+            max-width: 90%; /* Membatasi lebar maksimal tabel */
+        }
     </style>
 </head>
 
 <body>
     <?php $this->load->view('admin/index'); ?>
-    <!-- <div class="main"> -->
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Daftar Karyawan</h3>
-                    <a href="<?php echo base_url('admin/export_karyawan') ?>" class="btn-export">Export</a>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Foto</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Nama Depan</th>
-                                    <th scope="col">Nama Belakang</th>
-                                    <th scope="col">Aksi</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $no = 0; foreach ($user as $row): if ($row->role == 'karyawan') : $no++; ?>
-                                <tr>
-                                    <td><?php echo $no ?></td>
-                                    <td>
-                                        <img class="img-account-profile" width="50px"
-                                            src="<?php echo base_url('assets/images/user/' . $row->image) ?>" alt="">
-                                    </td>
-                                    <td><?php echo $row->username ?></td>
-                                    <td><?php echo $row->email ?></td>
-                                    <td><?php echo $row->nama_depan ?></td>
-                                    <td><?php echo $row->nama_belakang ?></td>
-                                    <td><button type="button" class="btn btn-danger" onclick="hapus(<?php echo $row->id; ?>)"> <i class="fas fa-trash"></i> Hapus
-                                        </button>
-
-                                </tr>
-                                <?php endif; endforeach; ?>
-                            </tbody>
-                        </table>
-                        <script>
-    function hapus(id) {
-        Swal.fire({
-            title: 'Yakin Di Hapus?',
-            text: "Anda tidak dapat mengembalikannya!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#198754',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "<?php echo base_url(
-                    'admin/hapusKaryawan/'
-                ); ?>" + id;
-            }
-        });
-    }
-    </script>
-
-                    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Daftar Karyawan</h3>
+                <a href="<?php echo base_url('admin/export_karyawan') ?>" class="btn-export">Export</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Foto</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Nama Depan</th>
+                                <th scope="col">Nama Belakang</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 0;
+                            foreach ($user as $row):
+                                if ($row->role == 'karyawan') :
+                                    $no++; ?>
+                                    <tr>
+                                        <td><?php echo $no ?></td>
+                                        <td>
+                                            <img class="img-account-profile" width="50px"
+                                                src="<?php echo base_url('assets/images/user/' . $row->image) ?>" alt="">
+                                        </td>
+                                        <td><?php echo $row->username ?></td>
+                                        <td><?php echo $row->email ?></td>
+                                        <td><?php echo $row->nama_depan ?></td>
+                                        <td><?php echo $row->nama_belakang ?></td>
+                                        <td><button type="button" class="btn btn-danger" onclick="hapus(<?php echo $row->id; ?>)">
+                                                <i class="fas fa-trash"></i> Hapus
+                                            </button>
+                                        </td>
+                                    </tr>
+                            <?php endif;
+                            endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

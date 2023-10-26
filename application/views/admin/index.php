@@ -316,6 +316,24 @@ body.dark {
         left: -100%;
     }
 }
+.dropdown-menu {
+        background-color: #0C134F;
+        border: none;
+    }
+
+    .dropdown-item {
+        color: #fff;
+    }
+
+    .dropdown-item:hover {
+        background-color: #1D267D;
+    }
+
+    .logout-button a {
+        margin-top: 180%;
+        text-align: left;
+        /* Posisi teks pada tengah */
+    }
 </style>
 
 <body>
@@ -358,30 +376,34 @@ body.dark {
                         </span>
                         <span class="navlink">karyawan</span>
                     </a>
-                    <a href="<?php echo base_url('admin/rekap_bulanan');
-                         ?>" class="nav_link submenu">
+                    <div class="nav_link submenu" id="rekapDropdown">
                         <span class="navlink_icon">
-                        <i class='bx bxs-user-check'></i>
+                            <i class="fas fa-file mr-2"></i>
                         </span>
-                        <span class="navlink">Rekap bulanan</span>
-                    </a>
-                    <a href="<?php echo base_url('admin/rekapPerHari');
-                         ?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bxs-user-check'></i>
-                        </span>
-                        <span class="navlink">Rekap harian</span>
-                    </a>
-                    <a href="<?php echo base_url('admin/rekapPerMinggu');
-                         ?>" class="nav_link submenu">
-                        <span class="navlink_icon">
-                        <i class='bx bxs-user-check'></i>
-                        </span>
-                        <span class="navlink">Rekap mingguan</span>
-                    </a>
+                        <span class="navlink">Menu Rekap</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="rekapDropdown">
+                        <a class="dropdown-item" href="<?php echo base_url('admin/rekapPerHari') ?>" class="nav_link submenu">
+                            <span class="navlink_icon"><i class="fas fa-file-signature mr-2"></i></span>
+                            <span class="navlink">Rekap Harian</span>
+                        </a>
+                        <a class="dropdown-item" href="<?php echo base_url('admin/rekapPerMinggu') ?>" class="nav_link submenu">
+                            <span class="navlink_icon"><i class="fas fa-file-invoice mr-2"></i></span>
+                            <span class="navlink">Rekap Mingguan</span>
+                        </a>
+                        <a class="dropdown-item" href="<?php echo base_url('admin/rekapPerBulan') ?>" class="nav_link submenu">
+                            <span class="navlink_icon"><i class="fas fa-file-contract mr-2"></i></span>
+                            <span class="navlink">Rekap Bulanan</span>
+                        </a>
+                    </div>
                 </li>
-                </div>
-                </ul>
+            </ul>
+        </div>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
                    <br>
                    <br>
                    <br>
@@ -413,6 +435,16 @@ body.dark {
     </a>
      </a>
     <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#rekapDropdown").click(function() {
+            $(this).next(".dropdown-menu").toggleClass("show");
+        });
+    });
+    </script>
     <script>
     const body = document.querySelector("body");
     const sidebar = document.querySelector(".sidebar");

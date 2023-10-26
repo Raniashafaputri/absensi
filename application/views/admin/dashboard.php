@@ -81,6 +81,31 @@
                 </div>
             </div>
         </div>
+        <style>
+    table {
+        width: 150%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 20px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .number {
+        font-weight: bold;
+    }
+</style>
         <table class="table table-striped mt-5">
             <thead>
                 <tr>
